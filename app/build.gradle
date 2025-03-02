@@ -28,11 +28,10 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.2'
 }
 
-
-tasks.named('test') {
-    useTestNG()
-}
-
 test {
     useTestNG()
+
+    include 'com/epam/training/serhii/klymenko/task3/**'
+
+    exclude 'com/epam/training/serhii/klymenko/task1/**'
 }
