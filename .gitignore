@@ -35,8 +35,8 @@ build
 *.xml
 
 # Ignore Gradle Wrapper files
-gradlew.bat
-gradle/wrapper/
+#gradlew.bat
+#gradle/wrapper/
 
 # Ignore Git attributes file
 .gitattributes
