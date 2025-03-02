@@ -6,11 +6,17 @@ public class CountingMethods {
             return 0;
         }
 
+        if (inputString.length() == 1) {
+            return 1;
+        }
+
         int result = 0;
         int tmpResult = 1;
+        boolean hasDifferentChars = false;
         for (int i = 1; i < inputString.length(); i++) {
             if (inputString.charAt(i - 1) != inputString.charAt(i)) {
                 tmpResult++;
+                hasDifferentChars = true;
             } else {
                 if (tmpResult > result) {
                     result = tmpResult;
@@ -18,6 +24,7 @@ public class CountingMethods {
                 tmpResult = 1;
             }
         }
-        return Math.max(result, tmpResult);
+        result = Math.max(result, tmpResult);
+        return hasDifferentChars ? result : 0;
     }
 }

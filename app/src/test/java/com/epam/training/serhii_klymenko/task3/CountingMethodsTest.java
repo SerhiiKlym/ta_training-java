@@ -35,7 +35,7 @@ public class CountingMethodsTest {
 
     @Test
     public void testAllCharsEqualString() {
-        assertEquals(instance.maxNumberUnequalConsecutiveChars("sssssss"), 1, "All the same characters in the string doesn't produce '1' as a result");
+        assertEquals(instance.maxNumberUnequalConsecutiveChars("sssssss"), 0, "All the same characters in the string should produce '0' as a result");
     }
 
     @Test
