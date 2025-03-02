@@ -2,7 +2,7 @@ package com.epam.training.serhii_klymenko.task3;
 
 public class CountingMethods {
     public int maxNumberUnequalConsecutiveChars(String inputString) {
-        if (inputString == null || inputString.length() == 0){
+        if (inputString == null || inputString.length() == 0) {
             return 0;
         }
 
@@ -26,5 +26,10 @@ public class CountingMethods {
         }
         result = Math.max(result, tmpResult);
         return hasDifferentChars ? result : 0;
+    }
+
+    public int maxNumberUnequalConsecutiveIdenticalLatinAlphabetChars(String inputString) {
+        //placeholder to TDD process
+        return 0;
     }
 }

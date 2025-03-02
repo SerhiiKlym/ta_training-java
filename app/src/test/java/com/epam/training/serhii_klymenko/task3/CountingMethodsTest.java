@@ -29,8 +29,8 @@ public class CountingMethodsTest {
     }
 
     @Test
-    public void testOneCharacterString() {
-        assertEquals(instance.maxNumberUnequalConsecutiveChars("A"), 1, "One character string should count the longest sequence correctly");
+    public void testEntirelyUniqueCharactersStringWithSymbols() {
+        assertEquals(instance.maxNumberUnequalConsecutiveChars("123!_@#%$kji9)"), 14, "A string with numbers and symbols should return its full length.");
     }
 
     @Test
@@ -39,8 +39,14 @@ public class CountingMethodsTest {
     }
 
     @Test
-    public void testAlternatingCharactersShouldReturnFullLength() {
-        assertEquals(instance.maxNumberUnequalConsecutiveChars("abababab"), 8, "Alternating characters should return the full length.");
+    public void testOneCharacterString() {
+        assertEquals(instance.maxNumberUnequalConsecutiveChars("A"), 1, "One character string should count the longest sequence correctly");
+    }
+
+    @Test
+    public void testRepeatingUniqueSequenceString() {
+        String testString = "ab".repeat(100);
+        assertEquals(instance.maxNumberUnequalConsecutiveChars(testString), 200, "Alternating characters should return the full length.");
     }
 
     @Test
@@ -67,10 +73,5 @@ public class CountingMethodsTest {
     public void testLongString() {
         String longInput = "abcdefgi".repeat(1000);
         assertEquals(instance.maxNumberUnequalConsecutiveChars(longInput), 8000, "A long unique character string should return its full length.");
-    }
-
-    @Test
-    public void testStringWithNumbersAndSymbols() {
-        assertEquals(instance.maxNumberUnequalConsecutiveChars("123%$kji9)"), 10, "A string with numbers and symbols should return its full length.");
     }
 }
