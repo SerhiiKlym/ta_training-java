@@ -32,3 +32,14 @@ Automate the following script:
     * Syntax is suspended for bash
     * Check that the code matches the one from paragraph 2.
 
+
+## Task 3
+
+1. Method for counting the maximum number of unequal consecutive characters from an input string is created	10%
+2. Method for determining the maximum number of consecutive identical letters of the Latin alphabet in a line from an input string is created	10%
+3. Method for determining the maximum number of consecutive identical digits from an input string is created	10%
+4. Method for counting the maximum number of unequal consecutive characters from an input string is covered by unit tests	15%
+5. Method for determining the maximum number of consecutive identical letters of the Latin alphabet in a line from an input string is covered by unit tests	15%
+6. Method for determining the maximum number of consecutive identical digits from an input string is covered by unit tests	15%
+7. AAA and FIRST unit testing patterns are applied	25%
+
