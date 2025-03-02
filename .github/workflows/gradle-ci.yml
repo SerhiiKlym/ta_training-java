@@ -1,0 +1,41 @@
+name: Run Unit Tests (Gradle)
+
+on:
+  push:
+    branches:
+      - main  # Runs tests on every push to main
+  pull_request:  # Also runs on PRs to main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use a GitHub-hosted runner
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Fetch latest code
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # Use Eclipse Temurin JDK
+          java-version: '17'  # Set Java version
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Grant execute permission for Gradle
+        run: chmod +x app/gradlew  # Ensure gradlew script is executable
+
+      - name: Build and Run Unit Tests
+        run: app/gradlew test --no-daemon  # Run Gradle tests
+
+      - name: Upload Test Results (Optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: app/build/reports/tests/  # Store test reports for debugging
