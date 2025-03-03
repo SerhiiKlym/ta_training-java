@@ -30,12 +30,13 @@ dependencies {
 
 test {
     useTestNG() {
-        excludeGroups "selenium"
+       // excludeGroups "selenium"
     }
 
 
     testLogging {
         showStandardStreams = true
+        events "PASSED", "FAILED", "SKIPPED"
     }
 
     reports {
