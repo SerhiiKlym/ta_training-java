@@ -8,7 +8,7 @@ import java.util.Map;
 import static org.testng.Assert.assertTrue;
 
 public class CreateTest extends BaseTest {
-    @Test
+    @Test(groups = "selenium")
     public void testCreatingSimplePaste() throws IOException {
         driver.get("https://pastebin.com/");
         PasteBinMainPage mainPage = new PasteBinMainPage(driver);
