@@ -31,28 +31,34 @@ public class PasteBinMainPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickCreateNewPasteBtn() {
-        wait.until(ExpectedConditions.elementToBeClickable(createNewPaste));
+    public PasteBinMainPage clickCreateNewPasteBtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(createNewPaste)).click();
+        return this;
     }
 
-    public void inputCodeIntoPostForm(String paste) {
+    public PasteBinMainPage inputCodeIntoPostForm(String paste) {
         wait.until(ExpectedConditions.visibilityOf(pastePostForm)).sendKeys(paste);
+        return this;
     }
 
-    public void clickPasteExpirationDropdown() {
+    public PasteBinMainPage clickPasteExpirationDropdown() {
         wait.until(ExpectedConditions.visibilityOf(pasteExpirationTimeSelector)).click();
+        return this;
     }
 
-    public void clickTenMinutesExpiration() {
+    public PasteBinMainPage clickTenMinutesExpiration() {
         wait.until(ExpectedConditions.visibilityOf(pasteExpirationTimeTenMinutes)).click();
+        return this;
     }
 
-    public void insertPasteName(String pasteName) {
+    public PasteBinMainPage insertPasteName(String pasteName) {
         wait.until(ExpectedConditions.visibilityOf(pasteNameInput)).sendKeys(pasteName);
+        return this;
     }
 
-    public void clickSubmitNewPaste() {
+    public PasteBinMainPage clickSubmitNewPaste() {
         wait.until(ExpectedConditions.visibilityOf(submitNewPaste)).click();
+        return this;
     }
 
     public boolean isSuccessNoticeDisplayed() {
