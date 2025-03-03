@@ -29,14 +29,12 @@ dependencies {
 }
 
 test {
-    useTestNG()
+    useTestNG() {
+        excludeGroups "selenium"
+    }
 
-    include 'com/epam/training/serhii/klymenko/task3/**'
-    exclude 'com/epam/training/serhii/klymenko/task1/**'
 
     testLogging {
-        events "PASSED", "FAILED", "SKIPPED"
-        exceptionFormat "full"
         showStandardStreams = true
     }
 
