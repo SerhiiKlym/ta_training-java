@@ -74,4 +74,74 @@ public class CountingMethodsTest {
         String longInput = "abcdefgi".repeat(1000);
         assertEquals(instance.maxNumberUnequalConsecutiveChars(longInput), 8000, "A long unique character string should return its full length.");
     }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_EmptyString() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars(""), 0, "Empty string doesn't produce '0' as a result");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_NullString() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars(null), 0, "Null string doesn't produce '0' as a result");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_AllUniqueChars() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("abcdefg"), 0, "Entirely unique string should produce '0' as a result.");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_AllUniqueCharactersStringWithSymbols() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("123!_@#%$kji9)"), 0, "A string with numbers and symbols and no consecutive latin symbols should produce '0' as a result.");
+    }
+    @Test
+    public void testEqualConsecutiveLatinChars_StringWithDigitsAndSymbols() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("123!_@#%$KKKji9)"), 3, "A string with numbers and symbols should count consecutive chars correctly.");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_AllCharsEqualString() {
+        String sameChars = "sssssss";
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars(sameChars), sameChars.length(), "All the same characters in the string should produce string lengths as a result");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_OneCharacterString() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("A"), 1, "One character string should count the longest sequence correctly");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_RepeatingUniqueSequenceString() {
+        String sample = "ab";
+        String testString = sample.repeat(100);
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars(testString), 0, "Alternating characters should return 0, i.e. - 'ab'");
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("ab"), 0, "Alternating characters should return 0, i.e. - 'ab'");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_StartsWithRepetitionString() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("SSSasdfghhj"), 3, "A string starting with repeated characters should count the longest sequence correctly.");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_EndsWithRepetitionString() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("abcdeefgSSS"), 3, "A string ending with repeated characters should count the longest sequence correctly.");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_RepetitionInTheMiddleString() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("aasdfghjSSSjgkg"), 3, "A string with repeated characters in the middle should count the longest sequence correctly.");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_StringWithSpaces() {
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("asd bFFFg    lk "), 3, "A string with spaces should count the longest sequence correctly.");
+    }
+
+    @Test
+    public void testEqualConsecutiveLatinChars_LongString() {
+        String longInput = "aBBBcdefgi".repeat(1000);
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars("aBBBcdefgi"), 3, "A long unique character string should return its base's full length.");
+        assertEquals(instance.maxNumberEqualConsecutiveIdenticalLatinAlphabetChars(longInput), 3, "A long unique character string should return its base's full length.");
+    }
 }
