@@ -29,10 +29,7 @@ dependencies {
 }
 
 test {
-    useTestNG() {
-       // excludeGroups "selenium"
-    }
-
+    useTestNG() {}
 
     testLogging {
         showStandardStreams = true
