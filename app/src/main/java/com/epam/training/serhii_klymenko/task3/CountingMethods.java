@@ -1,22 +1,13 @@
 package com.epam.training.serhii_klymenko.task3;
 
+import com.epam.training.serhii_klymenko.task3.util.CountingUtils;
+
 import java.util.regex.Pattern;
 
 public class CountingMethods {
 
-    private static Integer checkForEmptyNullSingleChar(String inputString) {
-        if (inputString == null || inputString.length() == 0) {
-            return 0;
-        }
-
-        if (inputString.length() == 1) {
-            return 1;
-        }
-        return null;
-    }
-
     public int maxNumberUnequalConsecutiveChars(String inputString) {
-        Integer x = checkForEmptyNullSingleChar(inputString);
+        Integer x = CountingUtils.checkForEmptyNullSingleChar(inputString);
         if (x != null) return x;
 
         int result = 0;
@@ -39,7 +30,7 @@ public class CountingMethods {
 
 
     public int maxNumberEqualConsecutiveIdenticalLatinAlphabetChars(String inputString) {
-        Integer x = checkForEmptyNullSingleChar(inputString);
+        Integer x = CountingUtils.checkForEmptyNullSingleChar(inputString);
         if (x != null) return x;
 
         int result = 0;
@@ -68,8 +59,8 @@ public class CountingMethods {
         return hasDifferentChars ? result : 0;
     }
 
-    public int maxNumberUnequalConsecutiveIdenticalDigitChars(String inputString) {
-        Integer x = checkForEmptyNullSingleChar(inputString);
+    public int maxNumberConsecutiveIdenticalDigitChars(String inputString) {
+        Integer x = CountingUtils.checkForEmptyNullSingleChar(inputString);
         if (x != null) return x;
 
         int result = 0;
