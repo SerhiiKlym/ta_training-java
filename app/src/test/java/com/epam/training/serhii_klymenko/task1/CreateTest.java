@@ -1,5 +1,6 @@
 package com.epam.training.serhii_klymenko.task1;
 
+import com.epam.training.serhii_klymenko.task1.util.JsonDataUtility;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
